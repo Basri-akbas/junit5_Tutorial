@@ -1,5 +1,6 @@
 package org.junit;
 
+
 import java.util.stream.DoubleStream;
 
 public class HesapMakinesi {

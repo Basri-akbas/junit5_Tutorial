@@ -2,6 +2,7 @@ package org.junit;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -36,7 +37,12 @@ public class J04_TestingParametirezed {
         assertEquals(beklenenBykhrf.toUpperCase(),isim);
     }
 
-
+    @ParameterizedTest(name="Expected(Buyukharf):{0},actual(Cevrilecek_deger):{1}") //  CsvFileSource  syntax
+    //@CsvFileSource src/test/resource klasoru altinda
+    @CsvFileSource(resources ="/data.csv",numLinesToSkip = 1) // numLinesToSkip = a --> a:start line dan itibaren kalansatrırlara parametre olarak method'da run edilir
+    void testBykharfcvr(String cevrilecek,String bykHarf){
+    assertEquals(bykHarf,cevrilecek.toUpperCase());
+    }
 
 
 }
